@@ -15,6 +15,7 @@
 #include <utility>
 #include <map>
 #include <atomic>
+#include <mutex>
 
 namespace flutter_blue_plus_winrt {
 
@@ -52,6 +53,7 @@ class FlutterBluePlusWinrtPlugin : public flutter::Plugin {
   // UI Thread context
   winrt::apartment_context ui_thread_;
 
+  std::mutex devices_mutex_;
   std::vector<std::pair<std::string, winrt::Windows::Foundation::IInspectable>> connected_devices_{};
   std::vector<std::pair<std::string, winrt::Windows::Foundation::IInspectable>> currently_connecting_devices_{};
   std::map<std::string, int32_t> rssi_cache_{};

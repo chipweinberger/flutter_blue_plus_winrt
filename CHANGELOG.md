@@ -1,3 +1,6 @@
+## 0.0.18
+* Fix multithreading & connection stability (#5)
+
 ## 0.0.17
 * Fix: Initialize `manufacturer_data` map correctly (#10)
 
