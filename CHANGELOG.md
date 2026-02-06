@@ -1,3 +1,6 @@
+## 0.0.17
+* Fix: Initialize `manufacturer_data` map correctly (#10)
+
 ## 0.0.16
 * Fix: MTU was always 23 on Windows. Now reports negotiated MTU correctly.
 

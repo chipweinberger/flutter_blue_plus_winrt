@@ -551,13 +551,14 @@ void FlutterBluePlusWinrtPlugin::OnAdvertisementReceived(
                 }
 
                 if (advertisement.ManufacturerData().Size() > 0) {
-                    flutter::EncodableMap msd_map;
-                    auto it = map.find(flutter::EncodableValue("manufacturer_data"));
-                    if (it != map.end()) {
-                        if (auto* existing = std::get_if<flutter::EncodableMap>(&it->second)) {
-                            msd_map = *existing;
-                        }
-                    }
+//                    flutter::EncodableMap msd_map;
+//                    auto it = map.find(flutter::EncodableValue("manufacturer_data"));
+//                    if (it != map.end()) {
+//                        if (auto* existing = std::get_if<flutter::EncodableMap>(&it->second)) {
+//                            msd_map = *existing;
+//                        }
+//                    }
+                    flutter::EncodableMap msd_map = flutter::EncodableMap();
                     for (const auto& msd : advertisement.ManufacturerData()) {
                         msd_map[flutter::EncodableValue(static_cast<int64_t>(msd.CompanyId()))] =
                             flutter::EncodableValue(utils::to_vector(msd.Data()));
